@@ -1,0 +1,67 @@
+{
+  "kind": "Service",
+  "apiVersion": "v1",
+  "metadata": {
+    "name": "ys-gra-grafana",
+    "namespace": "yschoi-tt",
+    "selfLink": "/api/v1/namespaces/yschoi-tt/services/ys-gra-grafana",
+    "uid": "bb00a7c8-ecdb-4edd-a580-2e5f82b06b91",
+    "resourceVersion": "4180555",
+    "creationTimestamp": "2021-01-04T02:20:12Z",
+    "labels": {
+      "app": "grafana",
+      "chart": "grafana-3.8.6",
+      "heritage": "Tiller",
+      "io.cattle.field/appId": "ys-gra",
+      "release": "ys-gra"
+    },
+    "annotations": {
+      "field.cattle.io/ipAddresses": "[]",
+      "field.cattle.io/publicEndpoints": "[{\"addresses\":[\"10.10.20.168\"],\"port\":31949,\"protocol\":\"TCP\",\"serviceName\":\"yschoi-tt:ys-gra-grafana\",\"allNodes\":true}]",
+      "field.cattle.io/targetDnsRecordIds": "[]",
+      "field.cattle.io/targetWorkloadIds": "[]"
+    },
+    "managedFields": [
+      {
+        "manager": "Go-http-client",
+        "operation": "Update",
+        "apiVersion": "v1",
+        "time": "2021-01-04T02:20:12Z",
+        "fieldsType": "FieldsV1",
+        "fieldsV1": {"f:metadata":{"f:labels":{".":{},"f:app":{},"f:chart":{},"f:heritage":{},"f:io.cattle.field/appId":{},"f:release":{}}},"f:spec":{"f:ports":{".":{},"k:{\"port\":80,\"protocol\":\"TCP\"}":{".":{},"f:name":{},"f:port":{},"f:protocol":{},"f:targetPort":{}}},"f:selector":{".":{},"f:app":{},"f:release":{}},"f:sessionAffinity":{}}}
+      },
+      {
+        "manager": "rancher",
+        "operation": "Update",
+        "apiVersion": "v1",
+        "time": "2021-01-04T02:28:42Z",
+        "fieldsType": "FieldsV1",
+        "fieldsV1": {"f:metadata":{"f:annotations":{".":{},"f:field.cattle.io/ipAddresses":{},"f:field.cattle.io/publicEndpoints":{},"f:field.cattle.io/targetDnsRecordIds":{},"f:field.cattle.io/targetWorkloadIds":{}}},"f:spec":{"f:externalTrafficPolicy":{},"f:ports":{"k:{\"port\":80,\"protocol\":\"TCP\"}":{"f:nodePort":{}}},"f:type":{}}}
+      }
+    ]
+  },
+  "spec": {
+    "ports": [
+      {
+        "name": "service",
+        "protocol": "TCP",
+        "port": 80,
+        "targetPort": 3000,
+        "nodePort": 31949
+      }
+    ],
+    "selector": {
+      "app": "grafana",
+      "release": "ys-gra"
+    },
+    "clusterIP": "10.43.143.157",
+    "type": "NodePort",
+    "sessionAffinity": "None",
+    "externalTrafficPolicy": "Cluster"
+  },
+  "status": {
+    "loadBalancer": {
+
+    }
+  }
+}
